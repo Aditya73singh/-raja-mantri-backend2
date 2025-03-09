@@ -1,9 +1,13 @@
 // routes/gameRoutes.js
 const express = require('express');
+const { createGame, joinGame } = require('../controllers/gameController');
 const router = express.Router();
-const gameController = require('../controllers/gameController');
 
-router.post('/game/create', gameController.createGame);
-router.get('/room/:roomId', gameController.getRoomDetails);
+router.post('/create', createGame);
+router.post('/join', joinGame);
+
+// You might later add more routes (e.g. for making guesses, updating game state, etc.)
+// router.get('/:gameId', getGameState);
+// router.post('/guess', makeGuess);
 
 module.exports = router;
